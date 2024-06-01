@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std;
+class car {
+public:
+	int speed;
+	int fuel;
+	int turbo;
+	int power;
+
+	car(int s, int f, int t, int p) {
+		speed = s;
+		fuel = f;
+		turbo = t;
+		power = p;
+	}
+
+	int havingturbo()
+	{
+		if (turbo == 0)
+		{
+			int  totalHp = power;
+		}
+		else
+		{
+			int totalHp = power + 50;
+		}
+		return 0;
+	}
+	int MaxSpeed(int totalHp)
+	{
+		if (totalHp < 90 && totalHp < 110)
+		{
+			return 180;
+		}
+		if (totalHp < 111 && totalHp < 140)
+		{
+			return 240;
+		}
+		if (totalHp < 141 && totalHp < 200)
+		{
+			return 300;
+		}
+		return 0;
+	}
+
+	int calDistance(int totalHp)
+	{
+		if (totalHp < 90 && totalHp < 110)
+		{
+			return fuel / 0.05;
+		}
+		if (totalHp < 111 && totalHp < 140)
+		{
+			return fuel / 0.06;
+		}
+		if (totalHp < 141 && totalHp < 200)
+		{
+			return fuel / 0.07;
+		}
+		return 0;
+	}
+};
+int main()
+{
+	int cs, cf, ct, cp;
+	int totalhp;
+	cout << "please enter speed, fuel, turbo and power : ";
+	cin >> cs >> cf >> ct >> cp;
+	car* car1 = new car(cs, cf, ct, cp);
+	totalhp = car1->havingturbo();
+	cout << "max speed is " << car1->MaxSpeed(totalhp) << " and distance is " << car1->calDistance(totalhp) << endl;
+}
